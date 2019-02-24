@@ -21,7 +21,7 @@
 <meta property="og:description" content="环境：  代码编写：Windows 7 x64，Visual Studio 2015 运行环境：CentOS 7.6.1810 (查看CentOS版本：cat /etc/redhat-release)    　　不知道有没有和我一样，一直混迹于Windows，然后转到Linux编程的同学。尽管网络上对微软产品的喷子很多，但习惯了在Visual Studio编写代码，切换至Linux实在不习惯。尝试">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://fhsoft.cn/png/linux/01.png">
-<meta property="og:updated_time" content="2019-02-03T03:05:07.389Z">
+<meta property="og:updated_time" content="2019-02-10T10:09:10.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos7安装高版本Cmake">
 <meta name="twitter:description" content="环境：  代码编写：Windows 7 x64，Visual Studio 2015 运行环境：CentOS 7.6.1810 (查看CentOS版本：cat /etc/redhat-release)    　　不知道有没有和我一样，一直混迹于Windows，然后转到Linux编程的同学。尽管网络上对微软产品的喷子很多，但习惯了在Visual Studio编写代码，切换至Linux实在不习惯。尝试">
@@ -182,11 +182,11 @@
 </ul>
 <p>　　不知道有没有和我一样，一直混迹于Windows，然后转到Linux编程的同学。尽管网络上对微软产品的喷子很多，但习惯了在Visual Studio编写代码，切换至Linux实在不习惯。尝试了微软的VC_Linux插件，写个Hello World基本没什么问题，但如果用来项目开发，确实觉得它就是个小朋友的玩具而已。<br>　　好了，假设你已安装好VC_Linux更好的替代品VisualGDB，使用Visual Studio新建Linux项目，一步一步往下走。<br><img src="/png/linux/01.png" alt=""><br>默认是MSBuild，都已经跨到Linux平台，还是选择CMake跨平台编译。<br><img src="/png/linux/02.png" alt=""><br><img src="/png/linux/003.png" alt=""><br>将会提示没有安装Cmake软件，输入密码后，VisualGDB将自动帮你安装(需要当前用户有执行sudo权限)。<br><img src="/png/linux/004.png" alt=""><br>似乎一切顺利，点击”Finish”按钮。<br><img src="/png/linux/005.png" alt=""><br>悲催了，CMake版本过低，虽然提示为3.8以上，最好是安装3.10以上版本。<br><img src="/png/linux/06.png" alt=""><br>VisualGDB还是很人性化，点击确认按钮，弹出<a href="https://visualgdb.com/documentation/cmake/annotations/" target="_blank" rel="noopener">解决办法的网页</a>，可以跟着网页教程一步一步完成CMake的高版本安装。这里我想安装指定版本的CMake，步骤如下：  </p>
 <ul>
-<li><p>下载Cmake</p>
+<li><p>下载Cmake，<a href="https://cmake.org/files/dev/?C=M;O=D" target="_blank" rel="noopener">下载列表</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://cmake.org/files/dev/cmake-3.13.20190131-g92bf7.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>解压Cmake</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf cmake-3.13.20190131-g92bf7.tar.gz &amp;&amp; cd cmake-3.13.20190131-g92bf7/</span><br></pre></td></tr></table></figure>
+<li><p>解压Cmake，看到这么长的文件名，是不是很担心打错了(使用Linux的Tab自动补全功能吧！用过一次，你就会喜欢上它)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar xvf cmake-3.13.20190131-g92bf7.tar.gz   </span><br><span class="line">cd cmake-3.13.20190131-g92bf7</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编译安装cmake，编译过程耗时较长，喝杯茶，耐心等待吧。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./bootstrap</span><br><span class="line">gmake</span><br><span class="line">sudo gmake install</span><br></pre></td></tr></table></figure>
@@ -206,6 +206,7 @@
 </ul>
 <p>出现你安装的CMake版本表示成功！CMake编译、安装完成。</p>
 <p>注：如果哪个步骤出错了，可能是没有安装相应的软件包，比如wget、gcc等。缺啥软件包就补安装啥软件包吧，然后继续跟着步骤走，祝一切顺利。</p>
+<p>【TODO】创建新项目提示错误：<br>CMake exited with code 1<br>System.Exception: Failed to create a Unix domain socket. Please install ‘socat’ on your Linux machine via ‘sudo apt-get install socat’ or ‘yum install socat’</p>
 
         </div>
         <footer class="article-footer">
@@ -213,7 +214,7 @@
 
 
 
-    <a data-url="http://fhsoft.cn/2019/02/03/linux/cmake_setup/" data-id="cjrobq9n1000sdki8z0czjczs" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://fhsoft.cn/2019/02/03/linux/cmake_setup/" data-id="cjsigsnan000uuci8swzsu99c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -289,7 +290,7 @@
         "genre": "软件开发",
         "datePublished": "2019-02-03",
         "dateCreated": "2019-02-03",
-        "dateModified": "2019-02-03",
+        "dateModified": "2019-02-10",
         "url": "http://fhsoft.cn/2019/02/03/linux/cmake_setup/",
         "description": "环境：
 
@@ -297,7 +298,7 @@
 运行环境：CentOS 7.6.1810 (查看CentOS版本：cat /etc/redhat-release)  
 
 　　不知道有没有和我一样，一直混迹于Windows，然后转到Linux编程的同学。尽管网络上对微软产品的喷子很多，但习惯了在Visual Studio编写代码，切换至Linux实在不习惯。尝试"
-        "wordCount": 99
+        "wordCount": 132
     }
 </script>
 
@@ -353,6 +354,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2019/02/24/web/php_setup/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            VS Code配置PHP开发环境的方法
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2019/02/01/hackrf/hackrf_setup/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
@@ -374,6 +385,26 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/24/web/php_setup/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/png/web/vs_code.png)" alt="VS Code配置PHP开发环境的方法" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/软件开发/">软件开发</a></p>
+                            <p class="item-title"><a href="/2019/02/24/web/php_setup/" class="title">VS Code配置PHP开发环境的方法</a></p>
+                            <p class="item-date"><time datetime="2019-02-24T05:19:41.000Z" itemprop="datePublished">2019-02-24</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -441,7 +472,7 @@
                             <a href="/2019/01/17/new-radio-station-license-2019/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/png/radio_station_license.png)" alt="工业和信息化部发布新版电台执照样式" class="thumbnail-image"></span>
     
     
 </a>
@@ -452,26 +483,6 @@
                             <p class="item-category"><a class="article-category-link" href="/categories/无线电/">无线电</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/无线电/新闻动态/">新闻动态</a></p>
                             <p class="item-title"><a href="/2019/01/17/new-radio-station-license-2019/" class="title">工业和信息化部发布新版电台执照样式</a></p>
                             <p class="item-date"><time datetime="2019-01-17T10:00:00.000Z" itemprop="datePublished">2019-01-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/01/08/github_free/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/png/pricing-social.png)" alt="GitHub：Announcing unlimited free private repository" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/软件开发/">软件开发</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件开发/新闻动态/">新闻动态</a></p>
-                            <p class="item-title"><a href="/2019/01/08/github_free/" class="title">GitHub：Announcing unlimited free private repository</a></p>
-                            <p class="item-date"><time datetime="2019-01-08T00:00:00.000Z" itemprop="datePublished">2019-01-08</time></p>
                         </div>
                     </li>
                 
@@ -494,7 +505,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -504,7 +515,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cmake/">Cmake</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackRF/">HackRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电台执照/">电台执照</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统维护/">系统维护</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cmake/">Cmake</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackRF/">HackRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Code/">VS Code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电台执照/">电台执照</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统维护/">系统维护</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -514,7 +525,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Cmake/" style="font-size: 10px;">Cmake</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HackRF/" style="font-size: 10px;">HackRF</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/电台执照/" style="font-size: 10px;">电台执照</a> <a href="/tags/系统维护/" style="font-size: 10px;">系统维护</a>
+            <a href="/tags/Cmake/" style="font-size: 10px;">Cmake</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HackRF/" style="font-size: 10px;">HackRF</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/VS-Code/" style="font-size: 10px;">VS Code</a> <a href="/tags/电台执照/" style="font-size: 10px;">电台执照</a> <a href="/tags/系统维护/" style="font-size: 10px;">系统维护</a>
         </div>
     </div>
 
